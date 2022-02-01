@@ -5,9 +5,9 @@ and view the inference results on the image in the browser.
 import argparse
 import io
 import os
-from PIL import Image
+#from PIL import Image
 
-import torch
+#import torch
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
@@ -21,6 +21,8 @@ def predict():
         file = request.files["file"]
         if not file:
             return
+        
+        '''
 
         img_bytes = file.read()
         img = Image.open(io.BytesIO(img_bytes))
@@ -42,6 +44,7 @@ def predict():
             img_base64 = Image.fromarray(img)
             img_base64.save("static/image0.jpg", format="JPEG")
         return redirect("static/image0.jpg")
+        '''
 
     return render_template("index.html")
 
