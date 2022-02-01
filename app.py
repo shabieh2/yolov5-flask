@@ -47,12 +47,14 @@ def predict():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Flask app exposing yolov5 models")
-    parser.add_argument("--port", default=5000, type=int, help="port number")
+    #parser.add_argument("--port", default=5000, type=int, help="port number")
     args = parser.parse_args()
 
     
 
-    app.run(host="0.0.0.0", port='5000')  # debug=True causes Restarting with stat
+    #app.run(host="0.0.0.0", port='5000')  # debug=True causes Restarting with stat
+    port = int(os.environ.get("PORT", 5000)) 
+    app.run(host='0.0.0.0', port=port)
 
 
 
